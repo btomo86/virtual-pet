@@ -50,3 +50,11 @@ describe('growUp', () => {
         expect(pet.fitness).toEqual(7);
       })
   })
+
+  describe('walk', () => {
+      test('increases fitness to a maxium of 10', () => {
+          const pet = new Pet('Kevin');
+          pet.walk();
+          expect(pet.fitness).toEqual(10);
+      })
+  })
