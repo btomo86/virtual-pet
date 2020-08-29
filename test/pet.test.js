@@ -99,3 +99,10 @@ describe('checkUp', () => {
     expect(pet.checkUp()).toBe('I feel great!');
   });
 });
+describe('checks if pet is alive or dead', () => {
+  test('age greater or equal to 30', () => {
+    const pet = new Pet('Kevin');
+    pet.age = 30;
+    expect(pet.isAlive).toEqual(false);
+  })
+})

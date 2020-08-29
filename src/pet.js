@@ -1,5 +1,7 @@
 const maxFitness = 10;
 const minimumHunger = 0;
+const maxAge = 30;
+const maxHunger = 10;
 
 class Pet {
   constructor(name) {
@@ -7,6 +9,10 @@ class Pet {
     this.age = 0;
     this.hunger = minimumHunger;
     this.fitness = 10;
+  }
+
+  get isAlive() {
+    return this.age < maxAge && this.hunger < maxHunger && this.fitness > maxFitness;
   }
 
   growUp() {
