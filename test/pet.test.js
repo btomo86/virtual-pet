@@ -104,5 +104,32 @@ describe('checks if pet is alive or dead', () => {
     const pet = new Pet('Kevin');
     pet.age = 30;
     expect(pet.isAlive).toEqual(false);
-  })
-})
+  });
+  test('fitness is below zero results in death', () => {
+    const pet = new Pet('Kevin');
+    pet.fitness = -1;
+    expect(pet.isAlive).toEqual(false);
+  });
+  test('hunger over 10 results in death', () => {
+    const pet = new Pet('Kevin');
+    pet.hunger = 11;
+    expect(pet.isAlive).toEqual(false);
+  });
+});
+describe('isAlive', () => {
+  test('checks if the pet is below 30 and alive', () => {
+    const pet = new Pet('Kevin');
+    pet.age = 29;
+    expect(pet.isAlive).toEqual(true);
+  });
+  test('checks if the pet is alive and has a fitness above zero', () => {
+    const pet = new Pet('Kevin');
+    pet.fitness = 1;
+    expect(pet.isAlive).toEqual(true);
+  });
+  test('checks if the pet is alive and hunger is below 10', () => {
+    const pet = new Pet('Kevin');
+    pet.hunger = 8;
+    expect(pet.isAlive).toEqual(true);
+  });
+});
