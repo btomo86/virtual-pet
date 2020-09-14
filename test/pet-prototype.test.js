@@ -1,4 +1,4 @@
-const Pet = require('../src/pet');
+const Pet = require('../src/pet-prototype');
 
 describe('constructor', () => {
   test('returns an object', () => {
@@ -131,5 +131,18 @@ describe('isAlive', () => {
     const pet = new Pet('Kevin');
     pet.hunger = 8;
     expect(pet.isAlive).toEqual(true);
+  });
+});
+describe('check we can make babies', () => {
+  const parent = new Pet('Dave');
+  const child = new Pet('Amelia');
+
+  parent.adoptChild(child);
+
+  test('check adding a child to a parent adds to the children array', () => {
+    expect(parent.children).toHaveLength(1);
+  });
+  test('check adding a child to a parent adds to the children array', () => {
+    expect(parent.children[0].name).toEqual('Amelia');
   });
 });

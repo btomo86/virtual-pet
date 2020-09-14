@@ -10,6 +10,7 @@ class Pet {
     this.age = 0;
     this.hunger = minimumHunger;
     this.fitness = 10;
+    this.children = [];
   }
 
   get isAlive() {
@@ -52,6 +53,10 @@ class Pet {
     }
 
     return 'I feel great!';
+  }
+
+  adoptChild(child) {
+    this.children.push(child);
   }
 }
 
